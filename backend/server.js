@@ -1,18 +1,16 @@
-require('dotenv').config()
+require('dotenv').config();
 
-const express = require('express')
-const mongoose = require('mongoose')
-const visitorRoutes = require('./routes/crudRouter')
-const CRUDapp = express()
+const express = require('express');
+const mongoose = require('mongoose');
+const visitorRoutes = require('./routes/crudRouter');
+const CRUDapp = express();
+const logger = require("morgan");
 
-CRUDapp.use(express.json())
+CRUDapp.use(express.json());
 
-CRUDapp.use((req, res, next) => {
-  console.log(req.path, req.method)
-  next()
-})
+CRUDapp.use(logger("dev"));
 
-CRUDapp.use('/homepage', visitorRoutes)
+CRUDapp.use('/homepage', visitorRoutes);
 
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {

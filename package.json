@@ -1,0 +1,17 @@
+{
+  "name": "crud-pile",
+  "version": "1.0.0",
+  "description": "A full CRUD application built using the MERN stack.",
+  "main": "index.js",
+  "scripts": {
+    "backend": "nodemon backend/server.js",
+    "frontend": "npm run dev --prefix frontend",
+    "dev": "concurrently \"npm run backend\"  \"npm run frontend\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.1"
+  }
+}
